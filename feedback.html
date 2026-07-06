@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>แบบสอบถามความพึงพอใจ | AI Workshop</title>
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --cream:#FBF7F0;
+  --cream-2:#FFFDF9;
+  --accent:#D97757;
+  --accent-dark:#E04B1A;
+  --accent-light:#FDEBE3;
+  --brown:#2E1F16;
+  --brown-soft:#6B5648;
+  --brown-mute:#8C7A6B;
+  --border:#EFE0CE;
+  --white:#FFFFFF;
+  --radius-sm:10px;
+  --radius-md:16px;
+  --radius-lg:24px;
+  --shadow-sm:0 2px 10px rgba(46,31,22,0.06);
+  --shadow-md:0 10px 30px rgba(46,31,22,0.10);
+  --shadow-accent:0 10px 30px rgba(224,75,26,0.28);
+  --ease:cubic-bezier(.22,.9,.34,1);
+  --good:#4F8A5B;
+  --bad:#C24C3E;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Prompt',sans-serif;
+  background:var(--cream);
+  color:var(--brown);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:80px;
+}
+.container{max-width:640px;margin:0 auto;padding:0 20px;}
+
+.topbar{
+  background:linear-gradient(90deg,var(--accent-dark),var(--accent));
+  color:#fff;text-align:center;font-size:13.5px;font-weight:500;
+  padding:10px 16px;
+}
+
+.head{ padding:44px 0 32px; text-align:left; }
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent-light);color:var(--accent-dark);
+  font-size:13px;font-weight:600;padding:8px 18px;border-radius:30px;
+  margin-bottom:20px;letter-spacing:.2px;
+}
+h1{
+  font-size:clamp(24px,5vw,32px);font-weight:700;color:var(--brown);
+  letter-spacing:-.5px;line-height:1.35;margin-bottom:14px;
+}
+h1 .hl{
+  background:linear-gradient(100deg,var(--accent-dark),var(--accent));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.head-sub{ font-size:15px; color:var(--brown-soft); max-width:52ch; }
+
+.card{
+  background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md);
+  padding:26px 24px; margin-bottom:18px; box-shadow:var(--shadow-sm);
+}
+.q-num{ font-size:12px; font-weight:600; color:var(--accent-dark); margin-bottom:8px; letter-spacing:.5px; }
+.q-label{ font-size:16px; font-weight:600; color:var(--brown); margin-bottom:4px; line-height:1.5; }
+.q-hint{ font-size:13px; color:var(--brown-mute); margin-bottom:18px; }
+
+.scale{ display:flex; gap:8px; flex-wrap:wrap; }
+.scale button{
+  flex:1; min-width:42px; padding:12px 0;
+  background:var(--cream-2); border:1.5px solid var(--border); border-radius:10px;
+  color:var(--brown-soft); font-family:'Prompt',monospace; font-weight:500; font-size:15px;
+  cursor:pointer; transition:all .2s var(--ease);
+}
+.scale button:hover{ border-color:var(--accent); color:var(--brown); }
+.scale button.selected{
+  background:linear-gradient(100deg,var(--accent-dark),var(--accent));
+  border-color:var(--accent-dark); color:#fff; font-weight:700;
+  box-shadow:var(--shadow-accent); transform:translateY(-1px);
+}
+.scale-labels{ display:flex; justify-content:space-between; font-size:11.5px; color:var(--brown-mute); margin-top:8px; }
+
+.pills{ display:flex; gap:10px; flex-wrap:wrap; }
+.pills button{
+  padding:10px 18px; background:var(--cream-2); border:1.5px solid var(--border); border-radius:999px;
+  color:var(--brown-soft); font-size:14px; font-weight:500; cursor:pointer; transition:all .2s var(--ease);
+}
+.pills button:hover{ border-color:var(--accent); color:var(--brown); }
+.pills button.selected{
+  background:linear-gradient(100deg,var(--accent-dark),var(--accent));
+  border-color:var(--accent-dark); color:#fff; font-weight:600; box-shadow:var(--shadow-accent);
+}
+
+textarea, input[type="text"]{
+  width:100%; background:var(--cream-2); border:1.5px solid var(--border); border-radius:10px;
+  padding:14px; color:var(--brown); font-family:'Prompt',sans-serif; font-size:14.5px;
+  resize:vertical; min-height:90px; line-height:1.6;
+}
+input[type="text"]{ min-height:unset; }
+textarea:focus, input[type="text"]:focus{ outline:none; border-color:var(--accent); }
+textarea::placeholder, input::placeholder{ color:var(--brown-mute); }
+
+.consent{ display:flex; align-items:flex-start; gap:12px; margin-top:14px; }
+.consent input[type="checkbox"]{ margin-top:3px; width:18px; height:18px; accent-color:var(--accent-dark); cursor:pointer; }
+.consent label{ font-size:13.5px; color:var(--brown-soft); line-height:1.6; cursor:pointer; }
+
+#nameField{ margin-top:14px; display:none; }
+#nameField label{ font-size:13px; color:var(--brown-mute); display:block; margin-bottom:6px; }
+
+.btn-primary{
+  display:flex; align-items:center; justify-content:center; gap:10px; width:100%;
+  padding:16px 36px; border-radius:14px; font-weight:600; font-size:16px;
+  background:linear-gradient(100deg,var(--accent-dark),var(--accent));
+  color:#fff; box-shadow:var(--shadow-accent);
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease);
+  border:none; cursor:pointer;
+}
+.btn-primary:hover{ transform:translateY(-3px); box-shadow:0 16px 40px rgba(224,75,26,0.38); }
+.btn-primary:disabled{ opacity:.55; cursor:not-allowed; transform:none; }
+
+.status{ text-align:center; font-size:13px; color:var(--brown-mute); margin-top:12px; }
+.status.error{ color:var(--bad); }
+
+.done{ display:none; text-align:center; padding:60px 20px; }
+.done .mark{ font-size:44px; color:var(--good); margin-bottom:18px; }
+.done h2{ font-size:22px; margin-bottom:10px; color:var(--brown); }
+.done p{ color:var(--brown-soft); font-size:14.5px; }
+
+.badges{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:36px; }
+.badges span{
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--white); border:1px solid var(--border); border-radius:999px;
+  padding:7px 14px; font-size:12.5px; color:var(--brown-soft);
+}
+.badges span i{ color:var(--accent-dark); font-size:11px; }
+
+footer{ text-align:center; margin-top:40px; font-size:12px; color:var(--brown-mute); }
+
+@media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">🎯 ขอบคุณที่เรียนกับเรา · ช่วยตอบแบบสอบถาม 2 นาทีเพื่อรุ่นถัดไป</div>
+
+<div class="container">
+
+  <div id="formView">
+    <div class="head">
+      <div class="eyebrow"><i class="fa-solid fa-comment-dots"></i> Feedback · AI Workshop</div>
+      <h1>เรียนจบแล้ว มาช่วยกัน<span class="hl">ปรับคอร์ส</span>ให้ดีขึ้น</h1>
+      <p class="head-sub">ใช้เวลาไม่ถึง 2 นาที คำตอบของคุณจะถูกนำไปพัฒนาคอร์สรุ่นถัดไปโดยตรง</p>
+    </div>
+
+    <form id="surveyForm">
+
+      <div class="card">
+        <div class="q-num">01</div>
+        <div class="q-label">คุณจะแนะนำคอร์สนี้ให้เพื่อนหรือเพื่อนร่วมงานไหม?</div>
+        <div class="q-hint">0 = ไม่แนะนำเลย · 10 = แนะนำแน่นอน</div>
+        <div class="scale" id="npsScale"></div>
+        <div class="scale-labels"><span>0</span><span>10</span></div>
+      </div>
+
+      <div class="card">
+        <div class="q-num">02</div>
+        <div class="q-label">เนื้อหา / ความเข้าใจง่าย</div>
+        <div class="scale" data-scale="content" data-max="5"></div>
+        <div class="scale-labels"><span>ไม่พอใจเลย</span><span>พอใจมาก</span></div>
+      </div>
+
+      <div class="card">
+        <div class="q-num">03</div>
+        <div class="q-label">ผู้สอน / การอธิบาย</div>
+        <div class="scale" data-scale="instructor" data-max="5"></div>
+        <div class="scale-labels"><span>ไม่พอใจเลย</span><span>พอใจมาก</span></div>
+      </div>
+
+      <div class="card">
+        <div class="q-num">04</div>
+        <div class="q-label">นำไปใช้งานจริงได้แค่ไหน</div>
+        <div class="scale" data-scale="practical" data-max="5"></div>
+        <div class="scale-labels"><span>ใช้งานจริงไม่ได้</span><span>ใช้งานจริงได้เลย</span></div>
+      </div>
+
+      <div class="card">
+        <div class="q-num">05</div>
+        <div class="q-label">หลังเรียนจบ คุณ deploy เว็บแอปของตัวเองสำเร็จไหม?</div>
+        <div class="pills" id="successPills">
+          <button type="button" data-val="สำเร็จ">สำเร็จ</button>
+          <button type="button" data-val="สำเร็จบางส่วน">สำเร็จบางส่วน</button>
+          <button type="button" data-val="ยังไม่สำเร็จ">ยังไม่สำเร็จ</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="q-num">06</div>
+        <div class="q-label">อยากให้ปรับปรุงอะไรบ้าง?</div>
+        <div class="q-hint">ไม่บังคับตอบ</div>
+        <textarea id="improveText" placeholder="เช่น อยากให้มีเวลาฝึกมากขึ้น, อยากได้ตัวอย่างเพิ่ม..."></textarea>
+      </div>
+
+      <div class="card">
+        <div class="q-num">07</div>
+        <div class="q-label">มีอะไรอยากบอกคนที่กำลังลังเลจะสมัครไหม?</div>
+        <div class="q-hint">คำตอบนี้อาจถูกนำไปแสดงเป็นรีวิวในหน้าเว็บคอร์ส</div>
+        <textarea id="testimonialText" placeholder="เช่น ก่อนเรียนไม่เคยเขียนโค้ดมาก่อนเลย แต่..."></textarea>
+        <div class="consent">
+          <input type="checkbox" id="consentCheck">
+          <label for="consentCheck">ยินยอมให้นำคำตอบนี้ไปใช้เป็นรีวิวประกอบการโฆษณาคอร์ส</label>
+        </div>
+        <div id="nameField">
+          <label for="displayName">ชื่อที่ต้องการให้แสดง (เช่น "แนน, พนักงานบัญชี")</label>
+          <input type="text" id="displayName" placeholder="ชื่อ / ตำแหน่ง">
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary" id="submitBtn">
+        <span id="submitBtnText">ส่งแบบสอบถาม</span> <i class="fa-solid fa-paper-plane"></i>
+      </button>
+      <div class="status" id="statusMsg"></div>
+    </form>
+
+    <div class="badges">
+      <span><i class="fa-solid fa-check"></i> Claude</span>
+      <span><i class="fa-solid fa-check"></i> Google Sheets</span>
+      <span><i class="fa-solid fa-check"></i> Apps Script</span>
+    </div>
+  </div>
+
+  <div class="done" id="doneView">
+    <div class="mark"><i class="fa-solid fa-circle-check"></i></div>
+    <h2>ขอบคุณสำหรับความคิดเห็นครับ</h2>
+    <p>คำตอบของคุณช่วยให้คอร์สรุ่นถัดไปดีขึ้น</p>
+  </div>
+
+  <footer>AI WORKSHOP · FEEDBACK FORM</footer>
+</div>
+
+<script>
+  // ใช้ gasUrl เดียวกับที่ใช้ในหน้า landing (CONFIG.gasUrl) — วาง URL เดียวกันตรงนี้
+  const GAS_URL = "https://script.google.com/macros/s/AKfycbxt9dF4fPcqXqFuKPev4MXDfWwpcQ3-9drzACWQFHsFcKUKqkPkMvodgFvaEYlgpEer/exec";
+
+  const state = { nps: null, content: null, instructor: null, practical: null, success: null };
+
+  const npsScale = document.getElementById('npsScale');
+  for (let i = 0; i <= 10; i++){
+    const btn = document.createElement('button');
+    btn.type = 'button'; btn.textContent = i;
+    btn.addEventListener('click', () => {
+      npsScale.querySelectorAll('button').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected'); state.nps = i;
+    });
+    npsScale.appendChild(btn);
+  }
+
+  document.querySelectorAll('.scale[data-scale]').forEach(container => {
+    const key = container.dataset.scale;
+    const max = parseInt(container.dataset.max, 10);
+    for (let i = 1; i <= max; i++){
+      const btn = document.createElement('button');
+      btn.type = 'button'; btn.textContent = i;
+      btn.addEventListener('click', () => {
+        container.querySelectorAll('button').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected'); state[key] = i;
+      });
+      container.appendChild(btn);
+    }
+  });
+
+  document.querySelectorAll('#successPills button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#successPills button').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected'); state.success = btn.dataset.val;
+    });
+  });
+
+  const consentCheck = document.getElementById('consentCheck');
+  const nameField = document.getElementById('nameField');
+  consentCheck.addEventListener('change', () => {
+    nameField.style.display = consentCheck.checked ? 'block' : 'none';
+  });
+
+  const form = document.getElementById('surveyForm');
+  const statusMsg = document.getElementById('statusMsg');
+  const submitBtn = document.getElementById('submitBtn');
+  const submitBtnText = document.getElementById('submitBtnText');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusMsg.classList.remove('error');
+
+    if (state.nps === null){
+      statusMsg.textContent = 'กรุณาให้คะแนนข้อ 1 (แนะนำเพื่อนไหม)';
+      statusMsg.classList.add('error');
+      return;
+    }
+
+    const payload = {
+      action: 'feedback', // สำคัญ: ให้ GAS แยกออกจากข้อมูลสมัครเรียน (regForm)
+      timestamp: new Date().toISOString(),
+      nps: state.nps,
+      content_rating: state.content,
+      instructor_rating: state.instructor,
+      practical_rating: state.practical,
+      deploy_success: state.success,
+      improve_feedback: document.getElementById('improveText').value.trim(),
+      testimonial: document.getElementById('testimonialText').value.trim(),
+      consent_to_use: consentCheck.checked,
+      display_name: consentCheck.checked ? document.getElementById('displayName').value.trim() : ''
+    };
+
+    submitBtn.disabled = true;
+    submitBtnText.textContent = 'กำลังส่ง...';
+    statusMsg.textContent = '';
+
+    try {
+      // text/plain เลี่ยง CORS preflight เหมือน regForm ในหน้า landing
+      await fetch(GAS_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+
+      document.getElementById('formView').style.display = 'none';
+      document.getElementById('doneView').style.display = 'block';
+    } catch (err) {
+      statusMsg.textContent = 'ส่งไม่สำเร็จ ลองอีกครั้ง หรือแจ้งผู้ดูแลระบบ';
+      statusMsg.classList.add('error');
+      submitBtn.disabled = false;
+      submitBtnText.textContent = 'ส่งแบบสอบถาม';
+    }
+  });
+</script>
+</body>
+</html>
