@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>AI Workshop Onsite — ศูนย์การให้ความรู้ JW2 Pro Training ลำพูน | เข้าร่วมฟรี</title>
+<meta name="description" content="เรียนสร้าง Web App จริงด้วย Claude, Google Sheets, Apps Script และ GitHub Pages ภายใน 3-4 ชั่วโมง ไม่ต้องมีพื้นฐานเขียนโปรแกรม จัดที่ศูนย์การให้ความรู้ JW2 Pro Training จ.ลำพูน วันอาทิตย์ที่ 30 สิงหาคม 2569 เวลา 09:00–16:00 น. เข้าร่วมฟรี เก็บเพียงค่าสถานที่และอาหาร 300 บาท รับเพียง 20 คน">
+<meta name="keywords" content="เรียน AI, สร้างเว็บแอป, Claude, Google Apps Script, Google Sheets, GitHub Pages, Workshop, คอร์สออนไลน์">
+<link rel="canonical" href="https://wuttinuntn-design.github.io/ai-workshop/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="เรียนสร้าง Web App ด้วย AI ภายใน 3-4 ชั่วโมง | Onsite ที่ JW2 Pro Training ลำพูน">
+<meta property="og:description" content="เปลี่ยนไอเดียของคุณให้เป็นเว็บแอปใช้งานจริง โดยไม่ต้องมีพื้นฐานการเขียนโปรแกรม อบรมฟรี Onsite ที่ JW2 Pro Training ลำพูน 30 ส.ค. นี้ รับเพียง 20 คน">
+<meta property="og:image" content="https://wuttinuntn-design.github.io/ai-workshop/og-image.jpg">
+<meta property="og:url" content="https://wuttinuntn-design.github.io/ai-workshop/">
+<meta property="og:locale" content="th_TH">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="เรียนสร้าง Web App ด้วย AI ภายใน 3-4 ชั่วโมง | Onsite ที่ JW2 Pro Training ลำพูน">
+<meta name="twitter:description" content="เปลี่ยนไอเดียของคุณให้เป็นเว็บแอปใช้งานจริง โดยไม่ต้องมีพื้นฐานการเขียนโปรแกรม อบรมฟรี Onsite ที่ JW2 Pro Training ลำพูน 30 ส.ค. นี้ รับเพียง 20 คน">
+<meta name="twitter:image" content="https://wuttinuntn-design.github.io/ai-workshop/og-image.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --cream:#F4F7FC;
+  --cream-2:#FFFFFF;
+  --accent:#4F8CFF;
+  --accent-dark:#1E4FD1;
+  --accent-light:#E8F0FE;
+  --brown:#0F1B33;
+  --brown-soft:#52607A;
+  --brown-mute:#8B96AC;
+  --border:#E1E8F5;
+  --white:#FFFFFF;
+  --radius-sm:10px;
+  --radius-md:16px;
+  --radius-lg:24px;
+  --shadow-sm:0 2px 10px rgba(15,27,51,0.07);
+  --shadow-md:0 10px 30px rgba(15,27,51,0.12);
+  --shadow-lg:0 20px 50px rgba(15,27,51,0.18);
+  --shadow-accent:0 10px 30px rgba(30,79,209,0.30);
+  --ease:cubic-bezier(.22,.9,.34,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Prompt',sans-serif;
+  background:var(--cream);
+  color:var(--brown);
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+ul{list-style:none;}
+.container{max-width:1140px;margin:0 auto;padding:0 24px;}
+.section{padding:96px 0;scroll-margin-top:76px;}
+@media (max-width:768px){.section{padding:64px 0;}}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent-light);color:var(--accent-dark);
+  font-size:13px;font-weight:600;padding:8px 18px;border-radius:30px;
+  margin-bottom:20px;letter-spacing:.2px;
+}
+.section-title{font-size:clamp(26px,4vw,40px);font-weight:600;color:var(--brown);letter-spacing:-.5px;line-height:1.3;}
+.section-sub{font-size:16px;color:var(--brown-soft);margin-top:14px;max-width:560px;}
+.section-head{text-align:center;margin-bottom:56px;}
+.section-head .section-sub{margin-left:auto;margin-right:auto;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px 36px;border-radius:14px;font-weight:600;font-size:16px;
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease);
+  white-space:nowrap;
+}
+.btn-primary{
+  background:linear-gradient(100deg,var(--accent-dark),var(--accent));
+  color:#fff;box-shadow:var(--shadow-accent);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(30,79,209,0.38);}
+.btn-primary:active{transform:translateY(-1px) scale(.98);}
+.btn-outline{background:var(--white);border:1.5px solid var(--border);color:var(--brown);}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent-dark);transform:translateY(-2px);}
+.btn-block{width:100%;}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease), transform .7s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.08s;}
+.reveal-delay-2{transition-delay:.16s;}
+.reveal-delay-3{transition-delay:.24s;}
+.reveal-delay-4{transition-delay:.32s;}
+
+/* ---------- Top urgency bar ---------- */
+.topbar{
+  background:linear-gradient(90deg,var(--accent-dark),var(--accent));
+  color:#fff;text-align:center;font-size:13.5px;font-weight:500;
+  padding:10px 16px;position:relative;z-index:60;
+}
+.topbar b{font-family:'Prompt',monospace;font-weight:600;font-variant-numeric:tabular-nums;}
+.topbar .close-bar{position:absolute;right:16px;top:50%;transform:translateY(-50%);opacity:.75;font-size:14px;}
+@media (max-width:600px){.topbar{font-size:12px;padding:9px 40px 9px 12px;}}
+
+/* ---------- Header ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(244,247,252,0.85);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  transition:box-shadow .3s;
+}
+header.scrolled{box-shadow:0 4px 20px rgba(15,27,51,0.06);}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;color:var(--brown);}
+.logo i{color:var(--accent-dark);font-size:20px;}
+.nav-menu{display:flex;gap:36px;font-size:14.5px;font-weight:500;color:var(--brown-soft);}
+.nav-menu a{position:relative;padding:4px 0;transition:color .2s;}
+.nav-menu a:hover{color:var(--accent-dark);}
+.nav-menu a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent-dark);transition:width .25s var(--ease);}
+.nav-menu a:hover::after{width:100%;}
+.nav-cta{display:flex;align-items:center;gap:16px;}
+.nav-cta .btn{padding:11px 24px;font-size:14px;}
+.burger{display:none;font-size:22px;color:var(--brown);}
+@media (max-width:860px){
+  .nav-menu{display:none;}
+  .burger{display:block;}
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;padding:72px 0 60px;text-align:center;overflow:hidden;
+  background:
+    radial-gradient(600px 400px at 15% 0%, rgba(47,111,237,0.14), transparent 60%),
+    radial-gradient(600px 400px at 85% 10%, rgba(15,27,51,0.10), transparent 60%);
+}
+.hero-blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;z-index:0;}
+.blob-1{width:340px;height:340px;background:radial-gradient(circle,var(--accent-light),transparent 70%);top:-100px;left:-80px;}
+.blob-2{width:280px;height:280px;background:radial-gradient(circle,#CFE0FF,transparent 70%);bottom:-60px;right:-60px;}
+.hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;}
+.social-proof-live{
+  display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;
+  font-size:13px;color:var(--brown-soft);
+}
+.avatar-stack{display:flex;}
+.avatar-stack span{
+  width:26px;height:26px;border-radius:50%;border:2px solid var(--cream);
+  margin-right:-9px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));
+}
+.hero h1{
+  font-size:clamp(30px,5.2vw,52px);font-weight:700;color:var(--brown);
+  letter-spacing:-1px;line-height:1.28;margin-bottom:20px;
+}
+.hero h1 .hl{
+  background:linear-gradient(100deg,var(--accent-dark),var(--accent));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:var(--brown-soft);max-width:560px;margin:0 auto 28px;}
+.stack-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:34px;}
+.stack-tags span{
+  background:rgba(255,255,255,0.75);border:1px solid var(--border);
+  font-size:12.5px;color:var(--brown-soft);padding:7px 15px;border-radius:20px;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.stack-tags i{color:var(--accent-dark);font-size:12px;}
+
+.hero-card{
+  background:var(--white);border:1px solid var(--border);border-radius:20px;
+  padding:26px 28px;max-width:340px;margin:0 auto 30px;text-align:left;
+  box-shadow:var(--shadow-md);
+}
+.hero-card-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.price-old{font-size:12px;color:var(--brown-mute);text-decoration:line-through;}
+.price-new{font-family:'Prompt',monospace;font-weight:700;font-size:38px;color:var(--accent-dark);line-height:1.1;}
+.price-new span{font-size:16px;font-weight:500;margin-left:4px;color:var(--brown-soft);}
+.save-badge{background:var(--accent-light);color:var(--accent-dark);font-size:11.5px;font-weight:600;padding:6px 12px;border-radius:20px;white-space:nowrap;}
+.hero-card hr{border:none;border-top:1px solid var(--border);margin:16px 0;}
+.hero-card ul li{font-size:13.5px;color:var(--brown);display:flex;align-items:flex-start;gap:8px;margin-bottom:9px;}
+.hero-card ul li i{color:var(--accent-dark);margin-top:3px;font-size:13px;}
+.hero-card ul li b{font-weight:600;}
+
+.hero-cta-note{font-size:12.5px;color:var(--brown-soft);margin-top:14px;display:flex;align-items:center;justify-content:center;gap:6px;}
+.stars-row{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:36px;font-size:13px;color:var(--brown-soft);}
+.stars-row .stars{color:var(--accent-dark);letter-spacing:1px;}
+
+/* ---------- Pulse CTA ---------- */
+@keyframes pulseGlow{
+  0%,100%{box-shadow:0 0 0 0 rgba(30,79,209,0.35), var(--shadow-accent);}
+  50%{box-shadow:0 0 0 14px rgba(30,79,209,0), var(--shadow-accent);}
+}
+.btn-pulse{animation:pulseGlow 2.4s ease-in-out infinite;}
+
+/* ---------- Why cards ---------- */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media (max-width:860px){.grid-3,.grid-4{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.grid-3,.grid-4,.grid-2{grid-template-columns:1fr;}}
+
+.why-card{
+  background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:30px 26px;transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
+}
+.why-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:transparent;}
+.icon-badge{
+  width:52px;height:52px;border-radius:14px;background:var(--accent-light);
+  display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--accent-dark);
+  margin-bottom:18px;
+}
+.why-card h3{font-size:17px;font-weight:600;margin-bottom:8px;}
+.why-card p{font-size:13.5px;color:var(--brown-soft);}
+
+/* ---------- 12 steps (connected timeline) ---------- */
+.timeline-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;max-width:920px;margin:0 auto;}
+@media (max-width:760px){.timeline-cols{grid-template-columns:1fr;}}
+.timeline-col{position:relative;}
+.timeline-col::before{
+  content:'';position:absolute;top:18px;bottom:18px;left:17px;width:2px;
+  background:repeating-linear-gradient(to bottom, var(--accent) 0 6px, transparent 6px 12px);
+}
+.tl-step{display:flex;gap:16px;position:relative;padding-bottom:34px;}
+.tl-step:last-child{padding-bottom:0;}
+.tl-dot{
+  width:36px;height:36px;border-radius:50%;flex-shrink:0;position:relative;z-index:1;
+  background:linear-gradient(100deg,var(--accent-dark),var(--accent));color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;
+  box-shadow:0 4px 10px rgba(30,79,209,0.3);
+}
+.tl-content{padding-top:4px;}
+.tl-content i.step-icon{font-size:15px;color:var(--accent-dark);margin-right:7px;}
+.tl-content h4{font-size:14.5px;font-weight:600;line-height:1.5;display:inline;}
+
+/* ---------- Audience ---------- */
+.audience-card{
+  background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:28px 20px;text-align:center;transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.audience-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);}
+.audience-card i{font-size:30px;color:var(--accent-dark);margin-bottom:14px;}
+.audience-card h4{font-size:15px;font-weight:600;margin-bottom:8px;}
+.audience-card p{font-size:13px;color:var(--brown-soft);line-height:1.5;}
+
+/* ---------- Scroll cue ---------- */
+.scroll-cue{
+  display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;
+  border:1.5px solid var(--border);color:var(--brown-mute);margin:36px auto 0;
+  animation:scrollCueBounce 2s ease-in-out infinite;transition:border-color .2s, color .2s;
+}
+.scroll-cue:hover{border-color:var(--accent);color:var(--accent-dark);}
+@keyframes scrollCueBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+
+/* ---------- Checklist ---------- */
+.checklist-panel{
+  background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:48px;box-shadow:var(--shadow-sm);
+}
+@media (max-width:600px){.checklist-panel{padding:28px 22px;}}
+.checklist-item{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px dashed var(--border);}
+.checklist-item:last-child{border-bottom:none;}
+.check-icon{
+  width:30px;height:30px;border-radius:50%;background:var(--accent-light);
+  display:flex;align-items:center;justify-content:center;color:var(--accent-dark);font-size:13px;flex-shrink:0;
+}
+.checklist-item span{font-size:14.5px;font-weight:500;}
+
+/* ---------- Reviews ---------- */
+.review-card{
+  background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:28px;transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.review-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);}
+.review-stars{color:var(--accent-dark);font-size:14px;margin-bottom:14px;letter-spacing:2px;}
+.review-quote{font-size:14px;color:var(--brown);margin-bottom:20px;min-height:80px;}
+.review-person{display:flex;align-items:center;gap:12px;}
+.review-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;}
+.review-name{font-size:13.5px;font-weight:600;}
+.review-role{font-size:12px;color:var(--brown-mute);}
+
+/* ---------- FAQ ---------- */
+.faq-item{background:var(--white);border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden;}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 24px;cursor:pointer;font-weight:500;font-size:15px;
+}
+.faq-q i{transition:transform .3s var(--ease);color:var(--accent-dark);flex-shrink:0;margin-left:16px;}
+.faq-item.open .faq-q i{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease);}
+.faq-a-inner{padding:0 24px 20px;font-size:13.5px;color:var(--brown-soft);}
+.faq-item.open .faq-a{max-height:220px;}
+
+/* ---------- Pricing ---------- */
+.pricing-wrap{display:flex;justify-content:center;}
+.price-card-big{
+  position:relative;background:var(--white);border:2px solid var(--accent);border-radius:28px;
+  padding:52px 44px;max-width:460px;width:100%;box-shadow:var(--shadow-lg);overflow:hidden;
+}
+.price-card-big::before{
+  content:'';position:absolute;top:-40%;right:-30%;width:280px;height:280px;
+  background:radial-gradient(circle,var(--accent-light),transparent 70%);border-radius:50%;
+}
+.price-ribbon{
+  position:absolute;top:22px;right:-40px;background:var(--accent-dark);color:#fff;
+  font-size:11.5px;font-weight:600;padding:6px 44px;transform:rotate(40deg);
+}
+.price-card-big .content{position:relative;z-index:1;}
+.price-seats{
+  display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--accent-dark);
+  font-weight:600;background:var(--accent-light);width:fit-content;padding:6px 14px;border-radius:20px;margin-bottom:20px;
+}
+.price-big-num{font-family:'Prompt',monospace;font-weight:700;font-size:56px;color:var(--brown);line-height:1;}
+.price-big-num span{font-size:18px;color:var(--brown-soft);font-weight:500;}
+.price-old-big{font-size:14px;color:var(--brown-mute);text-decoration:line-through;margin-bottom:6px;}
+.countdown-row{display:flex;gap:10px;margin:26px 0;}
+.cd-box{background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:10px 0;text-align:center;flex:1;}
+.cd-box b{display:block;font-family:'Prompt',monospace;font-size:20px;font-weight:700;color:var(--accent-dark);}
+.cd-box small{font-size:10.5px;color:var(--brown-mute);}
+.price-features{margin:24px 0;}
+.price-features li{display:flex;align-items:flex-start;gap:10px;font-size:14px;margin-bottom:11px;}
+.price-features li i{color:var(--accent-dark);margin-top:3px;}
+.seats-bar-track{height:8px;background:var(--cream);border-radius:10px;overflow:hidden;margin:8px 0 6px;}
+.seats-bar-fill{height:100%;width:60%;background:linear-gradient(90deg,var(--accent-dark),var(--accent));border-radius:10px;}
+.seats-label{font-size:12px;color:var(--brown-soft);display:flex;justify-content:space-between;}
+
+/* ---------- How to apply timeline ---------- */
+.timeline{max-width:640px;margin:0 auto;position:relative;}
+.timeline::before{content:'';position:absolute;left:23px;top:10px;bottom:10px;width:2px;background:var(--border);}
+.tl-item{display:flex;gap:22px;margin-bottom:38px;position:relative;}
+.tl-item:last-child{margin-bottom:0;}
+.tl-num{
+  width:48px;height:48px;border-radius:50%;background:linear-gradient(100deg,var(--accent-dark),var(--accent));
+  color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;box-shadow:0 6px 16px rgba(30,79,209,0.28);position:relative;z-index:1;
+}
+.tl-content h4{font-size:16px;font-weight:600;margin-bottom:4px;padding-top:10px;}
+.tl-content p{font-size:13.5px;color:var(--brown-soft);}
+
+/* ---------- Payment ---------- */
+.payment-card{
+  background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:48px;text-align:center;max-width:480px;margin:0 auto;box-shadow:var(--shadow-sm);
+}
+@media (max-width:600px){.payment-card{padding:30px 24px;}}
+.qr-box{
+  width:220px;margin:24px auto;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--border);
+}
+.qr-box img{width:100%;display:block;}
+
+/* ---------- Instructor ---------- */
+.instructor-wrap{display:flex;align-items:center;gap:48px;}
+@media (max-width:760px){.instructor-wrap{flex-direction:column;text-align:center;}}
+.instructor-photo{
+  width:220px;height:220px;border-radius:24px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--accent-light),var(--accent));
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:60px;
+  box-shadow:var(--shadow-md);
+}
+.instructor-name{font-size:22px;font-weight:600;margin-bottom:6px;}
+.instructor-role{color:var(--accent-dark);font-size:14px;font-weight:500;margin-bottom:16px;}
+.instructor-bio{color:var(--brown-soft);font-size:14.5px;max-width:520px;}
+
+/* ---------- Final CTA band ---------- */
+.final-cta{
+  background:linear-gradient(120deg,var(--accent-dark),var(--accent));
+  border-radius:var(--radius-lg);padding:60px 40px;text-align:center;color:#fff;
+  position:relative;overflow:hidden;
+}
+.final-cta h2{font-size:clamp(24px,4vw,34px);font-weight:700;margin-bottom:14px;}
+.final-cta p{opacity:.92;margin-bottom:28px;font-size:15px;}
+.final-cta .btn-outline{background:#fff;color:var(--accent-dark);border:none;}
+
+/* ---------- Footer ---------- */
+footer{background:var(--brown);color:#C6D2EA;padding:56px 0 26px;}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:40px;}
+.footer-logo{font-size:18px;font-weight:700;color:#fff;margin-bottom:10px;}
+.footer-desc{font-size:13px;color:#96A6C4;max-width:280px;}
+.footer-social{display:flex;gap:12px;}
+.footer-social a{
+  width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.08);
+  display:flex;align-items:center;justify-content:center;transition:background .2s;
+}
+.footer-social a:hover{background:var(--accent);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:22px;text-align:center;font-size:12.5px;color:#7C8CAE;}
+
+/* ---------- Floating buttons ---------- */
+.float-stack{position:fixed;right:20px;bottom:20px;z-index:70;display:flex;flex-direction:column;gap:12px;align-items:flex-end;}
+.float-btn{
+  width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:22px;color:#fff;box-shadow:0 8px 20px rgba(15,27,51,0.28);
+  transition:transform .25s var(--ease);
+}
+.float-btn:hover{transform:scale(1.1);}
+.fb-line{background:#06C755;}
+.fb-top{background:var(--brown);font-size:18px;opacity:0;pointer-events:none;transition:opacity .3s, transform .25s var(--ease);}
+.fb-top.show{opacity:1;pointer-events:auto;}
+
+/* ---------- Mobile menu ---------- */
+.mobile-menu{
+  position:fixed;inset:0;background:var(--cream);z-index:100;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+  transform:translateY(-100%);transition:transform .35s var(--ease);
+}
+.mobile-menu.open{transform:translateY(0);}
+.mobile-menu a{font-size:20px;font-weight:600;}
+.mobile-menu-close{position:absolute;top:24px;right:24px;font-size:26px;}
+
+/* ---------- Scroll progress bar ---------- */
+.progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;
+  background:linear-gradient(90deg,var(--accent-dark),var(--accent));
+  z-index:200;transition:width .1s linear;}
+
+/* ---------- Hero browser mockup (signature element) ---------- */
+.mockup-wrap{max-width:640px;margin:34px auto 30px;position:relative;}
+.browser-frame{
+  background:var(--white);border:1px solid var(--border);border-radius:16px;
+  box-shadow:var(--shadow-lg);overflow:hidden;text-align:left;
+  transform:perspective(1200px) rotateX(2deg);
+}
+.browser-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:var(--cream-2);border-bottom:1px solid var(--border);}
+.browser-dot{width:10px;height:10px;border-radius:50%;background:var(--border);}
+.browser-dot:nth-child(1){background:#F0958A;}
+.browser-dot:nth-child(2){background:#F2C879;}
+.browser-dot:nth-child(3){background:#8FCB9B;}
+.browser-url{flex:1;background:var(--cream);border-radius:8px;padding:5px 12px;font-size:11px;color:var(--brown-mute);margin-left:8px;font-family:'Prompt',monospace;text-align:left;}
+.browser-body{display:grid;grid-template-columns:1fr 1fr;min-height:180px;}
+@media (max-width:600px){.browser-body{grid-template-columns:1fr;min-height:auto;}}
+.mockup-chat{padding:20px;border-right:1px solid var(--border);background:var(--cream-2);}
+@media (max-width:600px){.mockup-chat{border-right:none;border-bottom:1px solid var(--border);}}
+.mockup-chat-label{font-size:10.5px;color:var(--brown-mute);font-weight:600;letter-spacing:.4px;margin-bottom:10px;text-transform:uppercase;}
+.mockup-typing{font-family:'Prompt',monospace;font-size:12.5px;color:var(--brown);line-height:1.7;min-height:64px;}
+.mockup-typing .cursor{display:inline-block;width:2px;height:13px;background:var(--accent-dark);margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;}
+@keyframes blink{50%{opacity:0;}}
+.mockup-result{padding:20px;display:flex;flex-direction:column;gap:10px;}
+.mockup-result-label{font-size:10.5px;color:var(--brown-mute);font-weight:600;letter-spacing:.4px;margin-bottom:2px;text-transform:uppercase;}
+.mockup-skeleton{height:9px;border-radius:5px;background:var(--border);opacity:0;animation:mkFade .5s var(--ease) forwards;}
+.mockup-skeleton.w1{width:70%;}
+.mockup-skeleton.w2{width:100%;}
+.mockup-skeleton.w3{width:55%;}
+.mockup-btn-fake{margin-top:6px;height:26px;width:86px;border-radius:8px;
+  background:linear-gradient(100deg,var(--accent-dark),var(--accent));opacity:0;animation:mkFade .5s var(--ease) forwards;}
+@keyframes mkFade{to{opacity:1;}}
+.mockup-badge{
+  position:absolute;bottom:-16px;right:18px;background:var(--white);border:1px solid var(--border);
+  box-shadow:var(--shadow-md);border-radius:12px;padding:9px 16px;font-size:12px;font-weight:600;
+  display:flex;align-items:center;gap:8px;color:var(--brown);
+}
+.mockup-badge i{color:#8FCB9B;}
+@media (max-width:600px){.mockup-badge{right:auto;left:18px;}}
+
+/* ---------- Trust badges row ---------- */
+.trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin-top:22px;}
+.trust-item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--brown-soft);}
+.trust-item i{color:var(--accent-dark);font-size:13px;}
+
+/* ---------- Value stack ---------- */
+.value-stack{margin:22px 0;padding:18px 0;border-top:1px dashed var(--border);border-bottom:1px dashed var(--border);}
+.vs-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:6px 0;color:var(--brown-soft);}
+.vs-row span:last-child{font-family:'Prompt',monospace;color:var(--brown);}
+.vs-total{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;padding-top:10px;margin-top:6px;border-top:1px solid var(--border);color:var(--brown);}
+.vs-total span:last-child{font-family:'Prompt',monospace;text-decoration:line-through;color:var(--brown-mute);font-weight:500;}
+.vs-today{display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:700;color:var(--accent-dark);margin-top:4px;}
+.vs-today span:last-child{font-family:'Prompt',monospace;font-size:22px;}
+
+/* ---------- Proof gallery ---------- */
+.proof-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:transform .3s var(--ease), box-shadow .3s var(--ease);}
+.proof-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);}
+.proof-shot{height:132px;padding:16px;display:flex;flex-direction:column;gap:8px;justify-content:center;}
+.proof-shot .row{height:8px;border-radius:4px;background:rgba(255,255,255,0.55);}
+.proof-shot .row.short{width:55%;}
+.proof-info{padding:16px 18px 20px;}
+.proof-info h4{font-size:14.5px;font-weight:600;margin-bottom:4px;}
+.proof-info p{font-size:12.5px;color:var(--brown-soft);}
+.proof-tag{display:inline-block;font-size:10.5px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);padding:3px 10px;border-radius:20px;margin-top:8px;}
+.proof-card{position:relative;}
+.proof-live-badge{
+  position:absolute;top:12px;right:12px;z-index:2;
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.92);backdrop-filter:blur(4px);
+  color:var(--accent-dark);font-size:11px;font-weight:700;
+  padding:6px 12px;border-radius:20px;box-shadow:var(--shadow-sm);
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.proof-live-badge .dot{width:6px;height:6px;border-radius:50%;background:#4CAF6D;box-shadow:0 0 0 0 rgba(76,175,109,.6);animation:liveDot 1.8s infinite;}
+@keyframes liveDot{0%,100%{box-shadow:0 0 0 0 rgba(76,175,109,.5);}70%{box-shadow:0 0 0 6px rgba(76,175,109,0);}}
+.proof-card:hover .proof-live-badge{transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.proof-domain{font-size:11px;font-weight:600;color:var(--brown-mute);letter-spacing:.2px;display:block;margin-bottom:4px;}
+.proof-link{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--accent-dark);margin-top:12px;}
+.proof-link i{font-size:11px;transition:transform .2s var(--ease);}
+.proof-card:hover .proof-link i{transform:translateX(3px);}
+
+/* ---------- Credibility stats strip ---------- */
+.cred-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);
+  box-shadow:var(--shadow-sm);margin-bottom:48px;overflow:hidden;
+}
+.cred-item{text-align:center;padding:26px 12px;border-right:1px solid var(--border);}
+.cred-item:last-child{border-right:none;}
+.cred-num{font-family:'Prompt',monospace;font-weight:700;font-size:clamp(22px,3vw,30px);color:var(--accent-dark);line-height:1.1;}
+.cred-label{font-size:12px;color:var(--brown-soft);margin-top:6px;}
+@media (max-width:700px){
+  .cred-strip{grid-template-columns:repeat(2,1fr);}
+  .cred-item{border-bottom:1px solid var(--border);}
+  .cred-item:nth-child(2n){border-right:none;}
+}
+
+/* ---------- Instructor mini card ---------- */
+.instructor-panel{
+  display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:center;
+  background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:36px;box-shadow:var(--shadow-sm);margin-top:56px;
+}
+@media (max-width:700px){.instructor-panel{grid-template-columns:1fr;text-align:center;padding:28px 22px;}}
+.instructor-photo{
+  width:140px;height:140px;border-radius:50%;overflow:hidden;
+  border:3px solid var(--accent);margin:0 auto;box-shadow:var(--shadow-sm);
+}
+.instructor-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.instructor-col{display:flex;flex-direction:column;align-items:center;gap:12px;}
+.instructor-name{font-weight:700;font-size:16px;color:var(--brown);}
+.instructor-role{font-size:12.5px;color:var(--brown-soft);}
+.instructor-stack{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;}
+.instructor-stack span{background:var(--accent-light);color:var(--accent-dark);font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;}
+.instructor-text p{font-size:14px;color:var(--brown-soft);margin-bottom:12px;}
+.instructor-text p:last-child{margin-bottom:0;}
+.instructor-text strong{color:var(--brown);}
+.instructor-cta{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;}
+@media (max-width:700px){.instructor-cta{justify-content:center;}}
+
+/* ---------- Sticky mobile CTA ---------- */
+.sticky-mobile-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;background:var(--white);
+  border-top:1px solid var(--border);box-shadow:0 -8px 24px rgba(15,27,51,0.10);
+  padding:12px 16px;display:none;align-items:center;justify-content:space-between;gap:14px;
+  transform:translateY(100%);transition:transform .3s var(--ease);
+}
+.sticky-mobile-cta.show{transform:translateY(0);}
+.sticky-mobile-cta .smc-price{line-height:1.15;}
+.sticky-mobile-cta .smc-price b{font-family:'Prompt',monospace;font-size:19px;color:var(--accent-dark);}
+.sticky-mobile-cta .smc-price small{display:block;font-size:10.5px;color:var(--brown-mute);}
+.sticky-mobile-cta .btn{padding:12px 22px;font-size:13.5px;white-space:nowrap;}
+@media (max-width:860px){.sticky-mobile-cta{display:flex;}}
+
+/* ---------- Toast notification ---------- */
+.toast-wrap{position:fixed;left:20px;bottom:20px;z-index:80;max-width:290px;}
+@media (max-width:860px){.toast-wrap{bottom:88px;left:12px;right:12px;max-width:none;}}
+.toast{
+  background:var(--white);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-md);
+  padding:13px 16px;display:flex;gap:12px;align-items:center;
+  transform:translateX(-120%);opacity:0;transition:transform .45s var(--ease), opacity .45s var(--ease);
+}
+.toast.show{transform:translateX(0);opacity:1;}
+.toast-icon{width:36px;height:36px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--accent),var(--accent-dark));
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;}
+.toast-text{font-size:12.5px;color:var(--brown);line-height:1.5;}
+.toast-text b{font-weight:600;}
+.toast-text span{display:block;font-size:11px;color:var(--brown-mute);margin-top:1px;}
+.toast-close{margin-left:auto;font-size:12px;color:var(--brown-mute);cursor:pointer;padding:4px;flex-shrink:0;}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+  html{scroll-behavior:auto;}
+}/* ============ REGISTRATION MODAL ============ */
+.reg-overlay{position:fixed;inset:0;background:rgba(10,17,33,0.60);display:none;align-items:center;justify-content:center;padding:20px;z-index:999;}
+.reg-overlay.open{display:flex;}
+.reg-modal{background:var(--white);border-radius:var(--radius-lg);max-width:460px;width:100%;max-height:90vh;overflow-y:auto;padding:32px;box-shadow:var(--shadow-lg);position:relative;}
+.reg-close{position:absolute;top:16px;right:16px;background:var(--cream);border:none;width:36px;height:36px;border-radius:50%;font-size:16px;color:var(--brown-soft);cursor:pointer;}
+.reg-close:hover{background:var(--accent-light);color:var(--accent-dark);}
+.reg-title{font-size:20px;font-weight:600;color:var(--brown);margin-bottom:6px;}
+.reg-sub{font-size:13px;color:var(--brown-soft);margin-bottom:20px;}
+.reg-field{margin-bottom:14px;}
+.reg-field label{display:block;font-size:13px;font-weight:600;color:var(--brown);margin-bottom:6px;}
+.reg-field input[type=text],.reg-field input[type=tel],.reg-field input[type=email],.reg-field input[type=number]{
+  width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;color:var(--brown);background:var(--cream-2);
+}
+.reg-field input:focus{outline:none;border-color:var(--accent);}
+.reg-file-wrap{border:1.5px dashed var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center;cursor:pointer;background:var(--cream-2);}
+.reg-file-wrap:hover{border-color:var(--accent);}
+.reg-file-wrap input[type=file]{display:none;}
+.reg-file-preview{margin-top:10px;max-width:100%;max-height:140px;border-radius:var(--radius-sm);display:none;}
+.reg-submit-note{font-size:12px;color:var(--brown-mute);margin-top:6px;}
+.reg-status{margin-top:14px;font-size:13px;padding:10px 14px;border-radius:var(--radius-sm);display:none;}
+.reg-status.show{display:block;}
+.reg-status.error{background:#FDECEC;color:#B3261E;}
+.reg-status.success{background:#E9F6EC;color:#1E7B34;}
+.reg-status.loading{background:var(--accent-light);color:var(--accent-dark);}
+.reg-submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
+.reg-spinner{display:inline-block;width:15px;height:15px;border:2.5px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;animation:regSpin .7s linear infinite;vertical-align:middle;margin-right:8px;}
+@keyframes regSpin{to{transform:rotate(360deg);}}
+.reg-modal.is-loading{pointer-events:none;opacity:0.85;}
+.reg-status.loading{display:flex;align-items:center;gap:8px;}
+.reg-status.loading::before{content:'';width:14px;height:14px;border:2px solid rgba(30,79,209,0.35);border-top-color:var(--accent-dark);border-radius:50%;animation:regSpin .7s linear infinite;flex-shrink:0;}
+
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ============ TOP URGENCY BAR ============ -->
+<div class="topbar" id="topbar">
+  <i class="fa-solid fa-fire"></i>
+  อบรมฟรี Onsite ที่ลำพูน เหลือ <b id="seatsLeftBar">20</b> ที่นั่งสุดท้าย · ปิดรับสมัครใน <b id="countdownBar">02:14:33</b>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader">
+  <div class="container nav">
+    <div class="logo"><i class="fa-solid fa-sparkles"></i> AI Workshop</div>
+    <nav class="nav-menu">
+      <a href="#why">รายละเอียด</a>
+      <a href="#benefits">สิ่งที่จะได้รับ</a>
+      <a href="#pricing">ราคา</a>
+      <a href="#payment">สมัครเรียน</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#pricing" class="btn btn-primary">จองสิทธิ์</a>
+      <button class="burger" id="burgerBtn" aria-label="เปิดเมนู"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="closeMobileMenu" aria-label="ปิดเมนู"><i class="fa-solid fa-xmark"></i></button>
+  <a href="#why">รายละเอียด</a>
+  <a href="#benefits">สิ่งที่จะได้รับ</a>
+  <a href="#pricing">ราคา</a>
+  <a href="#payment">สมัครเรียน</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-blob blob-1"></div>
+  <div class="hero-blob blob-2"></div>
+  <div class="container hero-inner">
+    <h1 class="reveal in">🚀 เรียนสร้าง Web App ด้วย AI<br>ภายใน <span class="hl">3-4 ชั่วโมง</span></h1>
+    <p class="hero-sub reveal in reveal-delay-1">เปลี่ยนไอเดียของคุณให้เป็นเว็บแอปใช้งานจริง โดยไม่จำเป็นต้องมีพื้นฐานการเขียนโปรแกรมมาก่อนแม้แต่น้อย</p>
+
+    <div class="reveal in reveal-delay-1" style="display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);color:var(--accent-dark);padding:8px 18px;border-radius:30px;font-size:14px;font-weight:600;margin-top:4px;">
+      <i class="fa-solid fa-calendar-days"></i> อบรมฟรี Onsite — วันอาทิตย์ที่ 30 สิงหาคม 2569 เวลา 09:00–16:00 น.
+    </div>
+
+    <div class="stack-tags reveal in reveal-delay-2">
+      <span><i class="fa-solid fa-check"></i> Claude</span>
+      <span><i class="fa-solid fa-check"></i> Google Sheets</span>
+      <span><i class="fa-solid fa-check"></i> Apps Script</span>
+      <span><i class="fa-solid fa-check"></i> GitHub</span>
+      <span><i class="fa-solid fa-check"></i> GitHub Pages</span>
+    </div>
+
+    <div class="mockup-wrap reveal in reveal-delay-3">
+      <div class="browser-frame">
+        <div class="browser-bar">
+          <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+          <div class="browser-url"><i class="fa-solid fa-lock" style="font-size:9px;margin-right:5px;"></i>your-app.github.io</div>
+        </div>
+        <div class="browser-body">
+          <div class="mockup-chat">
+            <div class="mockup-chat-label"><i class="fa-solid fa-message"></i> คุณพิมพ์บอก Claude</div>
+            <div class="mockup-typing" id="mockupTyping"></div>
+          </div>
+          <div class="mockup-result">
+            <div class="mockup-result-label"><i class="fa-solid fa-wand-magic-sparkles"></i> เว็บแอปที่ได้</div>
+            <div class="mockup-skeleton w1" style="animation-delay:1.6s"></div>
+            <div class="mockup-skeleton w2" style="animation-delay:1.9s"></div>
+            <div class="mockup-skeleton w3" style="animation-delay:2.2s"></div>
+            <div class="mockup-btn-fake" style="animation-delay:2.5s"></div>
+          </div>
+        </div>
+      </div>
+      <div class="mockup-badge"><i class="fa-solid fa-circle-check"></i> Deploy จริงบน GitHub Pages</div>
+    </div>
+
+    <div class="hero-card reveal in reveal-delay-3">
+      <div class="hero-card-top">
+        <div>
+          <div class="price-old">ค่าเข้าร่วมงาน</div>
+          <div class="price-new">ฟรี<span>ไม่มีค่าใช้จ่าย</span></div>
+        </div>
+        <div class="save-badge">เก็บเฉพาะค่าสถานที่ 300 บาท</div>
+      </div>
+      <hr>
+      <ul>
+        <li><i class="fa-solid fa-circle-check"></i><span>จัดแบบ <b>Onsite</b> ที่ JW2 Pro Training ลำพูน</span></li>
+        <li><i class="fa-solid fa-circle-check"></i><span>รับเพียง <b>20 คน</b> เท่านั้น</span></li>
+        <li><i class="fa-solid fa-circle-check"></i><span>เรียนสด Onsite — อา. 30 ส.ค. 2569, 09:00–16:00 น.</span></li>
+        <li><i class="fa-solid fa-circle-check"></i><span>มี Workshop ลงมือทำจริง</span></li>
+      </ul>
+    </div>
+
+    <a href="#pricing" class="btn btn-primary btn-pulse reveal in reveal-delay-4" style="font-size:17px;padding:18px 44px;">
+      จองสิทธิ์เลย <i class="fa-solid fa-arrow-right"></i>
+    </a>
+    <div class="trust-row reveal in reveal-delay-4">
+      <div class="trust-item"><i class="fa-solid fa-hand-holding-dollar"></i> ไม่ต้องโอนเงิน จ่ายหน้างาน</div>
+      <div class="trust-item"><i class="fa-solid fa-briefcase"></i> ประสบการณ์ 20+ ปี</div>
+      <div class="trust-item"><i class="fa-solid fa-headset"></i> ที่ปรึกษาหลังเรียน 7 วัน</div>
+    </div>
+
+    <a href="#why" class="scroll-cue" aria-label="เลื่อนดูเพิ่มเติม"><i class="fa-solid fa-chevron-down"></i></a>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><i class="fa-solid fa-question"></i> ทำไมต้องเรียนคอร์สนี้</div>
+      <h2 class="section-title">เรียนจบ ใช้งานได้จริง ไม่ใช่แค่ทฤษฎี</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto;">ออกแบบมาให้ทุกคนสร้างเว็บแอปของตัวเองได้ภายในคลาสเดียว</p>
+    </div>
+    <div class="grid-3">
+      <div class="why-card reveal"><div class="icon-badge"><i class="fa-solid fa-code"></i></div><h3>ไม่ต้องเขียนโค้ดมาก่อน</h3><p>เริ่มจากศูนย์ก็เรียนได้ ใช้ AI ช่วยเขียนโค้ดให้ทั้งหมด</p></div>
+      <div class="why-card reveal reveal-delay-1"><div class="icon-badge"><i class="fa-solid fa-laptop-code"></i></div><h3>ใช้งานได้จริง</h3><p>ไม่ใช่แค่ตัวอย่าง แต่เป็นเว็บแอปที่ Zero Hosting Cost และ PWA Offline-Ready ใช้งานหน้างานได้จริงทันที</p></div>
+      <div class="why-card reveal reveal-delay-2"><div class="icon-badge"><i class="fa-solid fa-globe"></i></div><h3>สร้างเว็บแอปจริง</h3><p>ได้เว็บแอปที่ Deploy ขึ้นออนไลน์ พร้อมใช้งานทันทีหลังเรียนจบ</p></div>
+      <div class="why-card reveal"><div class="icon-badge"><i class="fa-solid fa-file-code"></i></div><h3>มี Source Code</h3><p>ได้ไฟล์โค้ดตัวอย่างครบทุกขั้นตอน นำไปต่อยอดเองได้</p></div>
+      <div class="why-card reveal reveal-delay-1"><div class="icon-badge"><i class="fa-solid fa-message"></i></div><h3>มี Prompt พร้อมใช้</h3><p>ชุด Prompt ที่ผ่านการทดสอบแล้ว ใช้สั่งงาน AI ได้ทันที</p></div>
+      <div class="why-card reveal reveal-delay-2"><div class="icon-badge"><i class="fa-solid fa-arrow-trend-up"></i></div><h3>นำไปต่อยอดได้ทันที</h3><p>ประยุกต์ใช้กับงานจริงในบริษัทหรือธุรกิจของคุณได้เลย</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12 STEPS ============ -->
+<section class="section" style="background:var(--cream-2);" id="steps">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><i class="fa-solid fa-route"></i> ขั้นตอนการเรียน</div>
+      <h2 class="section-title">12 ขั้นตอนการสร้าง Web App</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto;">จากไอเดียในหัว สู่เว็บแอปที่ใช้งานได้จริงบนโลกออนไลน์</p>
+    </div>
+    <div class="timeline-cols">
+      <div class="timeline-col reveal">
+        <div class="tl-step"><div class="tl-dot">1</div><div class="tl-content"><i class="fa-solid fa-lightbulb step-icon"></i><h4>อธิบายไอเดียให้ Claude</h4></div></div>
+        <div class="tl-step"><div class="tl-dot">2</div><div class="tl-content"><i class="fa-solid fa-code step-icon"></i><h4>ให้ Claude เขียน HTML</h4></div></div>
+        <div class="tl-step"><div class="tl-dot">3</div><div class="tl-content"><i class="fa-solid fa-table step-icon"></i><h4>ใช้ Google Sheets เป็น Database</h4></div></div>
+        <div class="tl-step"><div class="tl-dot">4</div><div class="tl-content"><i class="fa-solid fa-plug step-icon"></i><h4>สร้าง API ด้วย Apps Script</h4></div></div>
+        <div class="tl-step"><div class="tl-dot">5</div><div class="tl-content"><i class="fa-solid fa-cloud-arrow-up step-icon"></i><h4>Deploy API</h4></div></div>
+        <div class="tl-step"><div class="tl-dot">6</div><div class="tl-content"><i class="fa-solid fa-link step-icon"></i><h4>เชื่อม HTML กับ API</h4></div></div>
+      </div>
+      <div class="timeline-col reveal reveal-delay-1">
+        <div class="tl-step"><div class="tl-dot">7</div><div class="tl-content"><i class="fa-solid fa-bug step-icon"></i><h4>Debug กับ Claude</h4></div></div>
+        <div class="tl-step"><div class="tl-dot">8</div><div class="tl-content"><i class="fa-brands fa-github step-icon"></i><h4>สร้าง GitHub Repository</h4></div></div>
+        <div class="tl-step"><div class="tl-dot">9</div><div class="tl-content"><i class="fa-solid fa-shield-halved step-icon"></i><h4>เปิด GitHub Pages</h4></div></div>
+        <div class="tl-step"><div class="tl-dot">10</div><div class="tl-content"><i class="fa-solid fa-link-slash step-icon"></i><h4>เว็บไซต์ออนไลน์</h4></div></div>
+        <div class="tl-step"><div class="tl-dot">11</div><div class="tl-content"><i class="fa-solid fa-puzzle-piece step-icon"></i><h4>เพิ่มฟีเจอร์</h4></div></div>
+        <div class="tl-step"><div class="tl-dot">12</div><div class="tl-content"><i class="fa-solid fa-rocket step-icon"></i><h4>ใช้งานจริง</h4></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF GALLERY ============ -->
+<section class="section" id="proof">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><i class="fa-solid fa-layer-group"></i> ตัวอย่างผลงาน</div>
+      <h2 class="section-title">เว็บแอปแบบนี้ที่คุณสร้างได้หลังเรียนจบ</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto;">ตัวอย่างจากงานจริงที่ผู้สอนพัฒนาให้ธุรกิจโลจิสติกส์และคลังสินค้า ใช้แพทเทิร์นเดียวกับที่คุณจะได้เรียน — ทุกระบบคลิกดู Demo จริงได้เลย</p>
+      <p style="font-size:12px;color:var(--brown-soft);margin-top:8px;">*รายละเอียดลูกค้าถูกปกปิดตาม NDA</p>
+    </div>
+
+    <div class="cred-strip reveal">
+      <div class="cred-item"><div class="cred-num">7+</div><div class="cred-label">ระบบที่ Deploy ใช้งานจริง</div></div>
+      <div class="cred-item"><div class="cred-num">20+</div><div class="cred-label">ปี ประสบการณ์สายงาน</div></div>
+      <div class="cred-item"><div class="cred-num">100%</div><div class="cred-label">ระบบยังใช้งานอยู่วันนี้</div></div>
+      <div class="cred-item"><div class="cred-num">฿0</div><div class="cred-label">ค่าใช้จ่าย Server เพิ่ม</div></div>
+    </div>
+
+    <div class="grid-4">
+      <a href="https://wuttinuntn-design.github.io/DEMO_Dock_Sch/" target="_blank" rel="noopener" class="proof-card reveal">
+        <div class="proof-live-badge"><span class="dot"></span> Live Demo</div>
+        <div class="proof-shot" style="background:linear-gradient(135deg,#E4EDFF,#C7DAFF);">
+          <div class="row" style="width:40%;background:rgba(15,27,51,0.20);"></div>
+          <div class="row"></div><div class="row short"></div><div class="row"></div>
+        </div>
+        <div class="proof-info">
+          <span class="proof-domain">Distribution Center</span>
+          <h4>Dock Scheduling System</h4>
+          <p>Dashboard ภาพรวม Dock 18 จุดแบบเรียลไทม์ พร้อม Conflict Detection และ Swimlane Planner กันงานชนกัน</p>
+          <span class="proof-tag">Chart.js + SheetJS + PWA</span>
+          <div class="proof-link">คลิกดูระบบจริง <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </a>
+      <a href="https://wuttinuntn-design.github.io/DC-Pulse-PM/" target="_blank" rel="noopener" class="proof-card reveal reveal-delay-1">
+        <div class="proof-live-badge"><span class="dot"></span> Live Demo</div>
+        <div class="proof-shot" style="background:linear-gradient(135deg,#EAF0FA,#D2E0F3);">
+          <div class="row" style="width:55%;background:rgba(15,27,51,0.20);"></div>
+          <div class="row"></div><div class="row short"></div><div class="row"></div>
+        </div>
+        <div class="proof-info">
+          <span class="proof-domain">คลังสินค้า / สายพานลำเลียง</span>
+          <h4>ระบบตรวจสอบเชิงป้องกันสายพานลำเลียง</h4>
+          <p>เช็กลิสต์ตรวจจุดพร้อมแนบรูป บันทึกผลอัตโนมัติ ใช้งานได้แบบ Offline บนมือถือหน้างาน</p>
+          <span class="proof-tag">Apps Script + PWA + Service Worker</span>
+          <div class="proof-link">คลิกดูระบบจริง <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </a>
+      <a href="https://wuttinuntn-design.github.io/DC-Pulse-Safety-Demo/" target="_blank" rel="noopener" class="proof-card reveal reveal-delay-2">
+        <div class="proof-live-badge"><span class="dot"></span> Live Demo</div>
+        <div class="proof-shot" style="background:linear-gradient(135deg,#E6ECF9,#CDDBF0);">
+          <div class="row" style="width:35%;background:rgba(15,27,51,0.20);"></div>
+          <div class="row"></div><div class="row short"></div><div class="row"></div>
+        </div>
+        <div class="proof-info">
+          <span class="proof-domain">ความปลอดภัยหน้างาน</span>
+          <h4>ระบบรายงานเหตุการณ์เสี่ยง (Near-Miss)</h4>
+          <p>รายงานเหตุการณ์เสี่ยงหน้างานพร้อมแนบรูป จัดหมวดหมู่และดูสรุปผ่านแดชบอร์ดอัตโนมัติ</p>
+          <span class="proof-tag">Apps Script + Google Drive API</span>
+          <div class="proof-link">คลิกดูระบบจริง <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </a>
+      <a href="https://wuttinuntn-design.github.io/DEMO_Dashboard/" target="_blank" rel="noopener" class="proof-card reveal reveal-delay-3">
+        <div class="proof-live-badge"><span class="dot"></span> Live Demo</div>
+        <div class="proof-shot" style="background:linear-gradient(135deg,#EEF3FC,#D5E2F5);">
+          <div class="row" style="width:48%;background:rgba(15,27,51,0.20);"></div>
+          <div class="row"></div><div class="row short"></div><div class="row"></div>
+        </div>
+        <div class="proof-info">
+          <span class="proof-domain">DC Daily Operation</span>
+          <h4>Daily Operation Dashboard</h4>
+          <p>แดชบอร์ด 7 แท็บสรุป IN/OUT/Stock/Cost รายวันของศูนย์กระจายสินค้า อัปเดตอัตโนมัติจาก Google Sheets</p>
+          <span class="proof-tag">Apps Script + Chart.js + PWA</span>
+          <div class="proof-link">คลิกดูระบบจริง <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="instructor-panel reveal">
+      <div class="instructor-col">
+        <div class="instructor-photo"><img src="data:image/jpeg;base64,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" alt="UP วุฒินันท์ ผู้สอน"></div>
+        <div class="instructor-name">UP — วุฒินันท์ น.</div>
+        <div class="instructor-role">IE · Logistics &amp; Operations · Web App Developer</div>
+        <div class="instructor-stack"><span>Apps Script</span><span>Google Sheets</span><span>PWA</span><span>GitHub Pages</span></div>
+      </div>
+      <div class="instructor-text">
+        <p><strong>ผู้สอนคอร์สนี้คือใคร?</strong> พื้นฐานวิศวกรอุตสาหการ ประสบการณ์กว่า <strong>20 ปี</strong> — 10 ปีแรกในสายโรงงาน (Production Planning, Process Improvement) และอีก 10 ปีในสาย Logistics เต็มตัว ตั้งแต่ 3PL จนถึงธุรกิจขนส่งพัสดุด่วน</p>
+        <p>เริ่มศึกษา AI มากว่า 1-2 ปี ก่อนลงมือพัฒนา Web App เต็มตัว โดยนำ AI มาเป็นเครื่องมือหลักในการพัฒนา — ทุกระบบที่เห็นด้านบนผ่านการใช้งานจริงในองค์กร ไม่ใช่แค่ Demo สวยๆ บนสไลด์</p>
+        <div class="instructor-cta">
+          <a href="#pricing" class="btn btn-outline"><i class="fa-solid fa-graduation-cap"></i> ดูรายละเอียดคอร์ส</a>
+          <a href="https://line.me/ti/p/~aodsafety" target="_blank" rel="noopener" class="btn btn-outline"><i class="fa-brands fa-line"></i> ทักไลน์สอบถาม</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUDIENCE ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><i class="fa-solid fa-users"></i> เหมาะกับใคร</div>
+      <h2 class="section-title">คอร์สนี้ออกแบบมาเพื่อคุณ</h2>
+    </div>
+    <div class="grid-4">
+      <div class="audience-card reveal"><i class="fa-solid fa-briefcase"></i><h4>พนักงานบริษัท</h4><p>อยากมีเครื่องมือช่วยงานประจำวันให้เร็วขึ้น ไม่ต้องรอฝ่าย IT</p></div>
+      <div class="audience-card reveal reveal-delay-1"><i class="fa-solid fa-store"></i><h4>เจ้าของธุรกิจ</h4><p>อยากได้ระบบจัดการร้าน/ธุรกิจแบบง่ายๆ ไม่ต้องจ้างทำแพงๆ</p></div>
+      <div class="audience-card reveal reveal-delay-2"><i class="fa-solid fa-graduation-cap"></i><h4>นักศึกษา</h4><p>อยากมีผลงานเว็บแอปจริงติดพอร์ตไว้สมัครงาน</p></div>
+      <div class="audience-card reveal reveal-delay-3"><i class="fa-solid fa-seedling"></i><h4>คนที่ไม่เคยเขียนโปรแกรม</h4><p>กลัวโค้ด กลัวคำสั่งยากๆ แต่อยากลองทำเองดูสักครั้ง</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFITS ============ -->
+<section class="section" style="background:var(--cream-2);" id="benefits">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><i class="fa-solid fa-gift"></i> สิ่งที่จะได้รับ</div>
+      <h2 class="section-title">ครบทุกอย่างที่ต้องใช้ในการเริ่มต้น</h2>
+    </div>
+    <div class="checklist-panel reveal" style="max-width:720px;margin:0 auto;">
+      <div class="grid-2">
+        <div>
+          <div class="checklist-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><span>เรียนสด Onsite ที่ศูนย์ฯ</span></div>
+          <div class="checklist-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><span>Workshop ลงมือทำจริง</span></div>
+          <div class="checklist-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><span>Source Code ตัวอย่าง</span></div>
+          <div class="checklist-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><span>ชุด Prompt พร้อมใช้</span></div>
+        </div>
+        <div>
+          <div class="checklist-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><span>ไฟล์ตัวอย่างประกอบการเรียน</span></div>
+          <div class="checklist-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><span>ถามตอบสดระหว่างเรียน</span></div>
+          <div class="checklist-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><span>เทคนิคการใช้ Claude เชิงลึก</span></div>
+          <div class="checklist-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><span>Deploy เว็บไซต์ขึ้นใช้งานจริง</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" style="background:var(--cream-2);" id="faq">
+  <div class="container" style="max-width:760px;">
+    <div class="section-head reveal">
+      <div class="eyebrow"><i class="fa-solid fa-circle-question"></i> คำถามที่พบบ่อย</div>
+      <h2 class="section-title">FAQ</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q">ไม่มีพื้นฐานเรียนได้ไหม<i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">เรียนได้แน่นอน คอร์สนี้ออกแบบมาสำหรับผู้ที่ไม่เคยเขียนโปรแกรมมาก่อนโดยเฉพาะ ใช้ AI ช่วยเขียนโค้ดให้ทั้งหมด</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">ต้องติดตั้งอะไรบ้าง<i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">ใช้เพียงบัญชี Google และเบราว์เซอร์เท่านั้น ไม่ต้องติดตั้งโปรแกรมเพิ่มเติม</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">ใช้ Mac ได้ไหม<i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">ได้ครับ คอร์สนี้ทำงานผ่านเบราว์เซอร์ทั้งหมด ใช้ได้ทั้ง Mac และ Windows</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">ใช้ Windows ได้ไหม<i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">ได้ครับ รองรับทุกระบบปฏิบัติการที่มีเบราว์เซอร์และอินเทอร์เน็ต</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">ต้องเดินทางไปที่ไหน<i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">อบรมแบบ Onsite ที่ศูนย์การให้ความรู้ JW2 Pro Training จ.ลำพูน มีแผนที่และ QR นำทางให้ในหน้าจองสิทธิ์ด้านล่าง</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">ต้องโอนเงินก่อนไหม<i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">ไม่ต้องโอนครับ กรอกข้อมูลจองสิทธิ์ไว้ก่อน แล้วค่อยชำระค่าสถานที่ 300 บาทหน้างานในวันอบรม</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">กลัวว่าเรียนแล้วจะทำเองต่อไม่ได้<i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">มีที่ปรึกษาหลังเรียนให้ฟรี 7 วัน ทักถามได้เมื่อติดปัญหา พร้อม Prompt ตัวอย่างให้ใช้ต่อได้ทันทีโดยไม่ต้องเริ่มจากศูนย์</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section" id="pricing">
+  <div class="container pricing-wrap">
+    <div class="price-card-big reveal">
+      <div class="price-ribbon">Onsite ที่ลำพูน</div>
+      <div class="content">
+        <div class="price-seats"><i class="fa-solid fa-fire"></i> รับเพียง 20 คนเท่านั้น</div>
+        <div class="reveal in" style="display:flex;align-items:center;gap:6px;justify-content:center;font-size:13.5px;color:var(--brown-soft);margin-bottom:4px;">
+          <i class="fa-solid fa-calendar-days" style="color:var(--accent-dark);"></i> เรียนวันอาทิตย์ที่ 30 สิงหาคม 2569 เวลา 09:00–16:00 น.
+        </div>
+        <div class="reveal in" style="display:flex;align-items:center;gap:6px;justify-content:center;font-size:13.5px;color:var(--brown-soft);margin-bottom:4px;">
+          <i class="fa-solid fa-location-dot" style="color:var(--accent-dark);"></i> ศูนย์การให้ความรู้ JW2 Pro Training จ.ลำพูน
+        </div>
+
+        <div class="price-old-big">ค่าเรียนคอร์ส (ปกติ 2,990 บาท)</div>
+        <div class="price-big-num">ฟรี<span>ไม่มีค่าใช้จ่าย</span></div>
+        <div style="font-size:13.5px;color:var(--brown-soft);margin-top:6px;">เก็บเฉพาะค่าสถานที่ + อาหารและเครื่องดื่ม <b style="color:var(--accent-dark);">300 บาท</b></div>
+
+        <div class="countdown-row">
+          <div class="cd-box"><b id="cdH">02</b><small>ชั่วโมง</small></div>
+          <div class="cd-box"><b id="cdM">14</b><small>นาที</small></div>
+          <div class="cd-box"><b id="cdS">33</b><small>วินาที</small></div>
+        </div>
+
+        <ul class="price-features">
+          <li><i class="fa-solid fa-circle-check"></i> เรียนสด Onsite อา. 30 ส.ค. 2569 (09:00–16:00 น.)</li>
+          <li><i class="fa-solid fa-circle-check"></i> Workshop ลงมือทำจริง</li>
+          <li><i class="fa-solid fa-circle-check"></i> Source Code + Prompt พร้อมใช้</li>
+          <li><i class="fa-solid fa-circle-check"></i> ถามตอบสดตลอดคลาส</li>
+          <li><i class="fa-solid fa-gift"></i> แถมฟรี ที่ปรึกษาหลังเรียน 7 วัน</li>
+        </ul>
+
+        <div class="value-stack">
+          <div class="vs-row"><span>คอร์สเรียนสด 3-4 ชั่วโมง</span><span>ฟรี</span></div>
+          <div class="vs-row"><span>Workshop ลงมือทำจริง</span><span>ฟรี</span></div>
+          <div class="vs-row"><span>Source Code + ชุด Prompt</span><span>ฟรี</span></div>
+          <div class="vs-row"><span>ที่ปรึกษาหลังเรียน 7 วัน</span><span>ฟรี</span></div>
+          <div class="vs-total"><span>มูลค่ารวมทั้งหมด</span><span>2,990 บาท</span></div>
+          <div class="vs-today"><span>ชำระหน้างานเพียง</span><span>300 บาท</span></div>
+        </div>
+
+        <div class="seats-bar-track"><div class="seats-bar-fill"></div></div>
+        <div class="seats-label"><span>จองแล้ว 0 คน</span><span>เหลือ 10 ที่นั่ง</span></div>
+
+        <a href="#payment" class="btn btn-primary btn-block btn-pulse" style="margin-top:24px;">
+          <span id="ctaBtnText">จองสิทธิ์ ก่อนหมด <span id="ctaSeatsLeft">20</span> ที่ <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW TO APPLY ============ -->
+<section class="section" style="background:var(--cream-2);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><i class="fa-solid fa-list-check"></i> วิธีสมัคร</div>
+      <h2 class="section-title">จองสิทธิ์ง่ายๆ ใน 3 ขั้นตอน</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal"><div class="tl-num">1</div><div class="tl-content"><h4>กดปุ่ม "จองสิทธิ์"</h4><p>กรอกชื่อและเบอร์โทรในฟอร์ม ไม่ต้องโอนเงิน</p></div></div>
+      <div class="tl-item reveal reveal-delay-1"><div class="tl-num">2</div><div class="tl-content"><h4>รับการยืนยันสิทธิ์</h4><p>ทีมงานยืนยันที่นั่งพร้อมแผนที่เดินทางทาง LINE/อีเมล ก่อนวันเรียน 30 ส.ค.</p></div></div>
+      <div class="tl-item reveal reveal-delay-2"><div class="tl-num">3</div><div class="tl-content"><h4>มาเรียนแล้วชำระหน้างาน</h4><p>จ่ายค่าสถานที่ + อาหาร 300 บาท ที่หน้างานในวันอบรม</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAYMENT ============ -->
+<section class="section" id="payment">
+  <div class="container">
+    <div class="payment-card reveal">
+      <div class="eyebrow"><i class="fa-solid fa-clipboard-check"></i> จองสิทธิ์เข้าร่วมงาน</div>
+      <h2 class="section-title" style="font-size:24px;">กรอกข้อมูลจองสิทธิ์ ไม่ต้องโอนเงิน</h2>
+            <p style="font-size:13px;color:var(--brown-soft);margin-bottom:24px;">กรอกชื่อและเบอร์โทรเพื่อจองสิทธิ์ ค่าสถานที่ 300 บาท ชำระที่หน้างานในวันอบรมได้เลย</p>
+      <div style="background:var(--accent-light);color:var(--accent-dark);border-radius:var(--radius-sm);padding:10px 16px;font-size:13px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:8px;">
+        <i class="fa-solid fa-calendar-days"></i> อบรมวันอาทิตย์ที่ 30 สิงหาคม 2569 เวลา 09:00–16:00 น. ณ ศูนย์การให้ความรู้ JW2 Pro Training จ.ลำพูน — แผนที่และรายละเอียดการเดินทางจะส่งให้ทาง LINE/อีเมลก่อนวันเรียน
+      </div>
+
+      <div style="background:var(--cream-2);border:1px solid var(--border);border-radius:var(--radius-md);padding:20px;margin-bottom:20px;text-align:center;">
+        <div style="font-weight:600;color:var(--brown);margin-bottom:4px;"><i class="fa-solid fa-location-dot" style="color:var(--accent-dark);"></i> ศูนย์การให้ความรู้ JW2 Pro Training</div>
+        <div style="font-size:13px;color:var(--brown-soft);margin-bottom:14px;">H2VM+W6C ตำบลบ้านกลาง อำเภอเมืองลำพูน จังหวัดลำพูน</div>
+        <div style="width:150px;margin:0 auto 12px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--border);">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAhIAAAISAQAAAACxRhsSAAAFMElEQVR4nO2dXYqsSBCFT4xCP+oO7lJ0Z83sTJdSCxhIHxuUmIeMyAyLe5sZblWOOMcHQa36MCGI/0hF8bvH+sdvIwAyyCCDjBswNrFjBiAyHiLzZpdYRQTreORf5EtsPfw//evegwwyvmV0qqqqwNYD2D5UF3QKbCIAOpV5+1BMqVOZhx0iI4BJVVXTK9+DDDK+Z5hiHL5EVXdgHQ/RP0dAPvVLgGHPTzE9PlQXAFkNzy9+DzLI+IeMVURkzoK5QxcAumxm7V1i9/e/BxlkhKN/vjHp0WNaDsiUoAIAgiFBMOy9rmMCpvT69yCDjG8P1eT+6ZQ6N+pZlXaKyR8Ag1oOK9/L/mmnulxlLWTcm+HBPADIZ+oU0+ND5TMBZu0BYHr0MIndevMPZHzle5BBxi8PDYfrU12y7qz6tNzL/mn8E/UpGe9nuJwmwOOjLl/myD8fNawaohugy0A5JaMFA+aaqroqBaDLsBc5dZ81O6Tq8X52ZimnZDRh5DgKZuPNqFtE7wrUYyvXu5O6BzDR7pPRhGFqc0pd9k+zsE4pKloTTAAxJZAPxvtktGCYPp1cqVowlWOmcsrGvzNFW0+UUzLaMGAhVC7y727U0cV+PxPMLtp9+qdkNGQEu4+sHYcdFu8nz0sh37On5sLW8OsqayHjvoxSj9pL1tR0bI78S6HKHVf3CqqOpZyS8XaG69MaPSUgRv5qGSo7uY41UabdJ6MJ41yPQq7q1/ypp06t3F9z/7X6Tzkl4/0MnEpR5Z6W5Ci6EPR7BbUKMOWUjHYMXbbevVLv2NdlE5HPdOQGFc8LANagAu9IudhayLgjA9XRDCWmUjKNVaiEfC9kUkH/lIwmDPNPz6bccqUltlrOFdSpNKjQ7pPRhlEyTwBKkT+UTAHgKcD3f1p7NeWUjPczSl9fKZmiZEhLearmTwGcmgGYPyWjGeMQrCMgM4A8VgoAWMcSKcGDqQWd5kHU+fXvQQYZvzryVIkAgGI78uRznNQbdmD9ocA6/gXkib78YztdZy1k3JdR+k+f7p2up9IxbdYe4ZJ2n4x2jMH81OyLrj+8N2XSHVilhy7ZITjyHilA2Rnlcmsh436MMF4SU6LeEeWRf9lxwqen4pDUVdZCxv+AcYjvKuWB0yo9ZM5PSyv18GW7payjtVRdcC1k3I6BmpLyoZIu9Elbdn/YS79Kzf0r9SkZrRgIlr1OoJR6lNbpqWdhVcopGc0YJqe113Spc6RD7UntSgN1d2qbZj2KjCaM0BhdNWYonoYNUOqo6eANf5RTMtowwtxJvlyAMsxXpLh08S91yxTafTLaMbxfyrv4870FxUn9iadaN/ShPiWjDcPNO4C6Ma/rTjfvdbcUk9Pi0bIeRUYTRtSnZQefILtlrNQLAHGrNOpTMhoxwjApagP/kgMnIIb1AOKuUrV3+iprIeO+DBfRKpjhVPdIOe/cl+pACu0+GS0YqAY86Emz+13s3S9TUXGnH8opGa0Ygxn1+FmTTURVv8T7+Y/YKrWOnaqmwz/Yc6G1kHFTRuw1jcP58dsSKI18eGpCZRxFRjtGDfA7lTlb+0Nkrh+MAuAf6jvEpvs5v09GO8ZpP+nQrP8TRYuStUr17/RPyWjBOO97rjGiL0V+S12lczffUPaavMpayLgv41lOUXzROhz9tOEk4KPTViO4ylrIuDvD8/yHWHz0sFZ+U68P/wpa/lS07znF+SgyGjFObmhp7qunsl1/7PtXjUVW6lMy3s6Q55nof3+sV1kLGWSQQcZ/yfgbF+60PlNrlc0AAAAASUVORK5CYII=" alt="QR เปิดแผนที่ Google Maps" style="width:100%;display:block;">
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=18.594809,99.033023" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:13px;padding:10px 20px;">
+          <i class="fa-brands fa-google"></i> เปิดใน Google Maps
+        </a>
+      </div>
+      <button class="btn btn-primary btn-block" id="formBtn">จองสิทธิ์เข้าร่วมงาน <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section">
+  <div class="container">
+    <div class="final-cta reveal">
+      <h2>พร้อมสร้าง Web App แรกของคุณแล้วหรือยัง?</h2>
+      <p>อบรมฟรี Onsite ที่ JW2 Pro Training ลำพูน วันที่ 30 ส.ค. นี้ รับเพียง 20 คน</p>
+      <a href="#payment" class="btn btn-outline">จองสิทธิ์เลย <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><i class="fa-solid fa-sparkles"></i> AI Workshop</div>
+        <p class="footer-desc">เรียนสร้าง Web App ด้วย AI จากศูนย์สู่การใช้งานจริง</p>
+      </div>
+      <div class="footer-social">
+        <a href="#" id="footerLineBtn" aria-label="LINE"><i class="fa-brands fa-line"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; <span id="year"></span> AI Workshop. สงวนลิขสิทธิ์ทุกประการ</div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING BUTTONS ============ -->
+<div class="float-stack">
+  <a href="#" class="float-btn fb-top" id="scrollTopBtn" aria-label="เลื่อนขึ้นด้านบน"><i class="fa-solid fa-arrow-up"></i></a>
+  <a href="#" class="float-btn fb-line" id="lineBtn" aria-label="LINE"><i class="fa-brands fa-line"></i></a>
+</div>
+
+<!-- ============ STICKY MOBILE CTA ============ -->
+<div class="sticky-mobile-cta" id="stickyMobileCta">
+  <div class="smc-price"><b id="smcPrice">300 บาท</b><small>เหลือ <span id="smcSeats">10</span> ที่</small></div>
+  <a href="#pricing" class="btn btn-primary">จองสิทธิ์เลย</a>
+</div>
+
+<!-- ============ REGISTRATION MODAL ============ -->
+<div class="reg-overlay" id="regOverlay">
+  <div class="reg-modal">
+    <button class="reg-close" id="regClose" aria-label="ปิด"><i class="fa-solid fa-xmark"></i></button>
+    <div class="reg-title">จองสิทธิ์เข้าร่วมงาน</div>
+    <div class="reg-sub">กรอกข้อมูลให้ครบแล้วกดยืนยัน ไม่ต้องโอนเงินล่วงหน้า ทีมงานจะติดต่อกลับทาง LINE เพื่อยืนยันสิทธิ์</div>
+    <form id="regForm">
+      <div class="reg-field">
+        <label>ชื่อ-นามสกุล *</label>
+        <input type="text" id="regName" required>
+      </div>
+      <div class="reg-field">
+        <label>เบอร์โทร *</label>
+        <input type="tel" id="regPhone" required>
+      </div>
+      <div class="reg-field">
+        <label>LINE ID</label>
+        <input type="text" id="regLine">
+      </div>
+      <div class="reg-field">
+        <label>อีเมล</label>
+        <input type="email" id="regEmail">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block reg-submit-btn" id="regSubmitBtn">
+        ยืนยันการจองสิทธิ์ <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <div class="reg-submit-note">ทีมงานจะยืนยันสิทธิ์กลับทาง LINE ภายใน 24 ชม. ค่าสถานที่ 300 บาท ชำระหน้างานในวันอบรม</div>
+      <div class="reg-status" id="regStatus"></div>
+    </form>
+  </div>
+</div>
+
+<script>
+/* ============ CONFIG ============ */
+const CONFIG = {
+  courseName: "AI Workshop Onsite: ศูนย์การให้ความรู้ JW2 Pro Training ลำพูน",
+  price: 300, // ค่าสถานที่ + อาหารและเครื่องดื่ม (อบรมฟรี ไม่มีค่าคอร์ส)
+  oldPrice: 2990,
+  seat: 20,
+  seatsBooked: 0, // ค่าเริ่มต้นก่อนดึงจำนวนจริงจาก Sheet (loadSeatsFromServer จะอัปเดตทันทีที่โหลดหน้า)
+  courseDate: "อาทิตย์ที่ 30 สิงหาคม 2569 เวลา 09:00-16:00 น.",
+  venue: "ศูนย์การให้ความรู้ JW2 Pro Training, H2VM+W6C ตำบลบ้านกลาง อำเภอเมืองลำพูน จังหวัดลำพูน", // อบรม Onsite ไม่มีลิงก์ Zoom
+  line: "https://line.me/ti/p/~aodsafety",
+  promptPayImage: "",
+  gasUrl: "https://script.google.com/macros/s/AKfycbxt9dF4fPcqXqFuKPev4MXDfWwpcQ3-9drzACWQFHsFcKUKqkPkMvodgFvaEYlgpEer/exec", // TODO: ตรวจสอบว่าใช้ Sheet เดิมหรือควรแยกชีทใหม่สำหรับงานนี้
+  countdownDeadline: "2026-08-29T23:59:00+07:00", // ปิดรับสมัครคืนก่อนวันเรียน (30 ส.ค. 2569)
+};
+
+/* ============ Footer year ============ */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ============ Seats left (single source of truth) ============ */
+function renderSeats(){
+  const seatsLeft = Math.max(0, CONFIG.seat - CONFIG.seatsBooked);
+  document.getElementById('seatsLeftBar').textContent = seatsLeft;
+  document.getElementById('smcSeats').textContent = seatsLeft;
+  const seatsLabel = document.querySelector('.seats-label');
+  if (seatsLabel) {
+    seatsLabel.innerHTML = `<span>จองแล้ว ${CONFIG.seatsBooked} คน</span><span>เหลือ ${seatsLeft} ที่นั่ง</span>`;
+  }
+  const seatsFill = document.querySelector('.seats-bar-fill');
+  if (seatsFill) {
+    const pct = Math.min(100, Math.round((CONFIG.seatsBooked / CONFIG.seat) * 100));
+    seatsFill.style.width = pct + '%';
+  }
+  const submitBtn = document.getElementById('regSubmitBtn');
+  if (submitBtn) submitBtn.disabled = seatsLeft <= 0;
+  const ctaBtnText = document.getElementById('ctaBtnText');
+  if (ctaBtnText) {
+    ctaBtnText.innerHTML = seatsLeft > 0
+      ? `จองสิทธิ์ ก่อนหมด <span id="ctaSeatsLeft">${seatsLeft}</span> ที่ <i class="fa-solid fa-arrow-right"></i>`
+      : `ที่นั่งเต็มแล้ว`;
+  }
+}
+document.getElementById('smcPrice').textContent = CONFIG.price.toLocaleString('th-TH') + ' บาท';
+renderSeats();
+
+/* ============ Load real seat count from Google Sheet (JSONP, no CORS issue) ============ */
+function loadSeatsFromServer(){
+  if (!CONFIG.gasUrl || CONFIG.gasUrl.indexOf('REPLACE_WITH') === 0) return; // ยังไม่ตั้งค่า GAS ข้ามไปก่อน
+  const cbName = 'seatsCb_' + Date.now();
+  window[cbName] = function(res){
+    if (res && res.success) {
+      CONFIG.seat = res.maxSeats || CONFIG.seat;
+      CONFIG.seatsBooked = res.seatsBooked || 0;
+      renderSeats();
+    }
+    delete window[cbName];
+    script.remove();
+  };
+  const script = document.createElement('script');
+  script.src = `${CONFIG.gasUrl}?action=count&callback=${cbName}`;
+  document.body.appendChild(script);
+}
+loadSeatsFromServer();
+
+/* ============ Floating button links ============ */
+document.getElementById('lineBtn').href = CONFIG.line;
+document.getElementById('footerLineBtn').href = CONFIG.line;
+
+/* ============ Registration modal ============ */
+const regOverlay = document.getElementById('regOverlay');
+document.getElementById('formBtn').addEventListener('click', () => {
+  regOverlay.classList.add('open');
+});
+document.getElementById('regClose').addEventListener('click', () => {
+  regOverlay.classList.remove('open');
+});
+regOverlay.addEventListener('click', (e) => {
+  if (e.target === regOverlay) regOverlay.classList.remove('open');
+});
+
+/* แปลงไฟล์สลิปเป็น base64 (ย่อขนาดภาพก่อน เพื่อให้ส่งไวขึ้น) + แสดง preview */
+/* ส่งข้อมูลจองสิทธิ์ไปที่ Apps Script (text/plain trick เลี่ยง CORS preflight) */
+const regForm = document.getElementById('regForm');
+const regStatus = document.getElementById('regStatus');
+const regSubmitBtn = document.getElementById('regSubmitBtn');
+const regSubmitBtnDefaultHTML = regSubmitBtn.innerHTML;
+const regModalEl = document.querySelector('.reg-modal');
+
+function setRegStatus(type, message){
+  regStatus.className = 'reg-status show ' + type;
+  regStatus.textContent = message;
+  regStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function setRegLoading(isLoading){
+  regModalEl.classList.toggle('is-loading', isLoading);
+  regSubmitBtn.disabled = isLoading;
+  regSubmitBtn.innerHTML = isLoading
+    ? `<span class="reg-spinner"></span> กำลังส่งข้อมูล...`
+    : regSubmitBtnDefaultHTML;
+  Array.from(regForm.elements).forEach(el => { if (el !== regSubmitBtn) el.disabled = isLoading; });
+}
+
+regForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (!CONFIG.gasUrl || CONFIG.gasUrl.indexOf('REPLACE_WITH') === 0) {
+    setRegStatus('error', 'ระบบยังไม่พร้อมรับสมัคร กรุณาติดต่อทีมงานทาง LINE โดยตรง');
+    return;
+  }
+
+  setRegLoading(true);
+  setRegStatus('loading', 'กำลังส่งข้อมูล กรุณารอสักครู่ (ไม่ต้องปิดหน้านี้)...');
+
+  const payload = {
+    name: document.getElementById('regName').value,
+    phone: document.getElementById('regPhone').value,
+    lineId: document.getElementById('regLine').value,
+    email: document.getElementById('regEmail').value,
+    amount: CONFIG.price,
+    paymentMethod: 'onsite' // จ่ายหน้างาน ไม่ได้โอนล่วงหน้า
+  };
+
+  try {
+    const res = await fetch(CONFIG.gasUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // เลี่ยง CORS preflight
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    if (data.success) {
+      CONFIG.seatsBooked = data.seatsBooked;
+      CONFIG.seat = data.maxSeats || CONFIG.seat;
+      renderSeats();
+      setRegStatus('success', 'จองสิทธิ์สำเร็จ! ทีมงานจะยืนยันกลับทาง LINE ภายใน 24 ชม. ค่าสถานที่ 300 บาท จ่ายหน้างานได้เลย');
+      regForm.reset();
+    } else if (data.error === 'seats full') {
+      setRegStatus('error', 'ขออภัย ที่นั่งเต็มแล้วครับ');
+    } else {
+      setRegStatus('error', 'ส่งข้อมูลไม่สำเร็จ กรุณาลองใหม่หรือติดต่อทาง LINE');
+    }
+  } catch (err) {
+    setRegStatus('error', 'เชื่อมต่อไม่สำเร็จ กรุณาลองใหม่หรือติดต่อทาง LINE');
+  } finally {
+    setRegLoading(false);
+    regSubmitBtn.disabled = (CONFIG.seat - CONFIG.seatsBooked) <= 0;
+  }
+});
+
+/* ============ Countdown timer ============ */
+function initCountdown(){
+  let deadline = CONFIG.countdownDeadline ? new Date(CONFIG.countdownDeadline) : new Date(Date.now() + (2*3600 + 14*60 + 33)*1000);
+  function tick(){
+    let diff = Math.max(0, deadline - new Date());
+    let h = Math.floor(diff/3600000);
+    let m = Math.floor((diff%3600000)/60000);
+    let s = Math.floor((diff%60000)/1000);
+    let hh = String(h).padStart(2,'0'), mm = String(m).padStart(2,'0'), ss = String(s).padStart(2,'0');
+    document.getElementById('cdH').textContent = hh;
+    document.getElementById('cdM').textContent = mm;
+    document.getElementById('cdS').textContent = ss;
+    document.getElementById('countdownBar').textContent = `${hh}:${mm}:${ss}`;
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+initCountdown();
+
+/* ============ Scroll reveal ============ */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, {threshold:0.15});
+revealEls.forEach(el=>io.observe(el));
+
+/* ============ Header shrink + scroll-top button + progress + sticky mobile CTA ============ */
+const header = document.getElementById('siteHeader');
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+const progressBar = document.getElementById('progressBar');
+const stickyMobileCta = document.getElementById('stickyMobileCta');
+const heroEl = document.querySelector('.hero');
+window.addEventListener('scroll', ()=>{
+  header.classList.toggle('scrolled', window.scrollY > 20);
+  scrollTopBtn.classList.toggle('show', window.scrollY > 500);
+
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = docHeight > 0 ? (window.scrollY / docHeight * 100) + '%' : '0%';
+
+  const heroBottom = heroEl.getBoundingClientRect().bottom;
+  stickyMobileCta.classList.toggle('show', heroBottom < 0);
+}, { passive:true });
+scrollTopBtn.addEventListener('click', (e)=>{ e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); });
+
+/* ============ Hero mockup typing effect ============ */
+function initMockupTyping(){
+  const el = document.getElementById('mockupTyping');
+  if(!el) return;
+  const line = 'ช่วยสร้างเว็บแอปเช็กสต็อกสินค้าคลัง ให้แจ้งเตือนของใกล้หมดด้วย';
+  let i = 0;
+  el.innerHTML = '<span class="cursor"></span>';
+  function type(){
+    if(i <= line.length){
+      el.innerHTML = line.slice(0, i) + '<span class="cursor"></span>';
+      i++;
+      setTimeout(type, 38);
+    }
+  }
+  setTimeout(type, 500);
+}
+initMockupTyping();
+
+/* ============ FAQ accordion ============ */
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click', ()=>{
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o=>o.classList.remove('open'));
+    if(!isOpen) item.classList.add('open');
+  });
+});
+
+/* ============ Mobile menu ============ */
+const mobileMenu = document.getElementById('mobileMenu');
+document.getElementById('burgerBtn').addEventListener('click', ()=>mobileMenu.classList.add('open'));
+document.getElementById('closeMobileMenu').addEventListener('click', ()=>mobileMenu.classList.remove('open'));
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>mobileMenu.classList.remove('open')));
+</script>
+</body>
+</html>
